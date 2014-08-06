@@ -2,6 +2,8 @@
 
 cljx-start is a Leiningen template to provide a configured cjlx template to ease in the configuration nightmare.
 
+[![Clojars Project](http://clojars.org/cljx-start/lein-template/latest-version.svg)](http://clojars.org/cljx-start/lein-template)
+
 ## Difference from cljs-start
 
 cljx-start isn't intended to have a comprehensive release setup, it focuses more on getting you compiled and coding.
