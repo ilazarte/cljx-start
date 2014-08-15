@@ -8,6 +8,6 @@ Usage FIXME
 
 ## License
 
-Copyright &copy; {{year}} FIXME
+Copyright &copy; FIXME {{year}}
 
-License FIXME
+Released under the Eclipse Public License, the same as Clojure.

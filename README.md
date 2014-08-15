@@ -40,7 +40,8 @@ Several lein aliases have been created for convenience, I typically use lein dev
     
 ## Plans
 
-Looking into including figwheel potentially, possibly gorilla repl as well.    
+Looking into including figwheel potentially, maybe gorilla repl as well but refreshing ring cljs/clj is on by default.
+As far as testing goes, most likely will adapt clojure.test/clojurescript.test due to similarly but investigation is pending.   
     
 ## License
 

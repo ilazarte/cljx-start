@@ -1,17 +1,27 @@
 (defproject {{name}} "0.1.0-SNAPSHOT"
+
   :description "FIXME: write this!"
+  
   :url "http://example.com/FIXME"
+
+  :scm {:name "git"
+        :url "https://github.com/user/repo"}
+  
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
 
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [org.clojure/clojurescript "0.0-2280"]]
-
-  :plugins [[com.keminglabs/cljx "0.4.0"]
+  
+  :plugins [[com.keminglabs/cljx "0.4.0" :exclusions [org.clojure/clojure]]
             [lein-cljsbuild "1.0.4-SNAPSHOT"]
             [lein-pdo "0.1.1"]]
 
   :jar-exclusions [#"\.cljx|\.svn|\.swp|\.swo|\.DS_Store"]
   
   :resource-paths ["target/generated/classes"]
+  
+  :prep-tasks [["cljx" "once"] ["cljsbuild" "once"] "javac" "compile"]
   
   :source-paths ["src/cljx" "src/clj" "src/cljs"]
 
@@ -50,4 +60,6 @@
                              "server"   ["ring" "server" "8080"]
                              "dev"      ["pdo" "server," "cljx" "auto," "cljsbuild" "auto"]}
               
-                   :ring {:handler cljx-start.core/app}}})
+                   :ring {:handler       cljx-start.core/app
+                          :auto-reload?  true
+                          :auto-refresh? true}}})
