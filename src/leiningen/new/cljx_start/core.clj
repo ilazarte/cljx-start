@@ -6,6 +6,7 @@
             [ring.middleware.file-info    :as file-info]
             [ring.middleware.content-type :as content-type]
             [ring.middleware.json         :as json]
+            [ring.middleware.resource     :as resource]
             [ring.util.response           :as response]
             [hiccup.page              :refer [html5 include-js include-css]]))
 
@@ -22,15 +23,16 @@
 (defroutes app-routes
   
   (GET "/" [] 
-       (html5 
-         [:head 
-          [:title "{{name}} dev"]]
-         [:body 
-          [:div "{{name}} dev loaded"]
-          (include-js
-            "goog/base.js"
-            "{{sanitized}}.js")
-          [:script "goog.require('{{sanitized}}.dev');"]]))
+    (html5 
+      [:head 
+       [:title "{{name}} dev"]]
+      [:body 
+       [:div#main nil]
+       (include-js
+         "/webjars/react/0.11.1/react.js"
+         "/js/goog/base.js"
+         "/js/{{sanitized}}.js")
+       [:script "goog.require('{{sanitized}}.dev');"]]))
   
   (route/resources "/")
   
@@ -38,11 +40,11 @@
 
 (def app
   (-> (handler/site app-routes)
-    (file/wrap-file "out")
+    (file/wrap-file "resources/public")
     (file-info/wrap-file-info)
+    (resource/wrap-resource "/META-INF/resources")
     (content-type/wrap-content-type)
     json/wrap-json-body
     json/wrap-json-params
     json/wrap-json-response
     wrap-nocache))
-  

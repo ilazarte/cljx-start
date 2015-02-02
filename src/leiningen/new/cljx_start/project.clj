@@ -11,21 +11,25 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
 
   :dependencies [[org.clojure/clojure "1.6.0"]
-                 [org.clojure/clojurescript "0.0-2280"]]
+                 [org.clojure/clojurescript "0.0-2755"]
+                 [figwheel "0.2.2-SNAPSHOT"]
+                 [compojure "1.3.1"]
+                 [ring "1.3.2"]
+                 [ring/ring-json "0.3.1"]
+                 [hiccup "1.0.5"]
+                 [org.webjars/react "0.11.1"]
+                 [reagent "0.4.3"]]
   
-  :plugins [[com.keminglabs/cljx "0.4.0" :exclusions [org.clojure/clojure]]
-            [lein-cljsbuild "1.0.4-SNAPSHOT"]
+  :plugins [[com.keminglabs/cljx "0.5.0"]
+            [lein-cljsbuild "1.0.4"]
+            [lein-figwheel "0.2.2-SNAPSHOT"]
             [lein-pdo "0.1.1"]]
 
   :jar-exclusions [#"\.cljx|\.svn|\.swp|\.swo|\.DS_Store"]
   
-  :resource-paths ["target/generated/classes"]
-  
-  :prep-tasks [["cljx" "once"] ["cljsbuild" "once"] "javac" "compile"]
-  
   :source-paths ["src/cljx" "src/clj" "src/cljs"]
 
-  :clean-targets [:target-path :compile-path "out"]
+  :figwheel {:port 3449}
   
   :cljx {:builds [{:source-paths ["src/cljx"]
                    :output-path "target/classes"
@@ -37,29 +41,21 @@
   
   :cljsbuild {:builds {:{{name}} 
                        {:source-paths ["src/cljs" "target/generated/classes"]
-                        :compiler {:output-to "out/{{sanitized}}.js"
-                                   :source-map "out/{{sanitized}}.js.map"
-                                   :output-dir "out" 
+                        :compiler {:output-to "resources/public/js/{{sanitized}}.js"
+                                   :source-map "resources/public/js/{{sanitized}}.js.map"
+                                   :output-dir "resources/public/js" 
                                    :optimizations :none}}}}
   
-  :profiles {:dev {:dependencies [[compojure "1.1.8"]
-                                  [ring "1.3.0"]
-                                  [ring/ring-json "0.3.1"]
-                                  [hiccup "1.0.5"]]
-                   
-                   :plugins [[lein-ring "0.8.11"]]
+  :profiles {:dev {:plugins [[lein-ring "0.9.1"]]
                    
                    :source-paths ["dev/clj" "dev/cljs"]
                    
                    :cljsbuild {:builds {:{{name}} {:source-paths ["dev/cljs"]}}}
                    
-                   :aliases {"rhino"    ["trampoline" "cljsbuild" "repl-rhino"]
-                             "once"     ["do" "cljx" "once," "cljsbuild" "once"]
-                             "auto"     ["pdo" "cljx" "auto," "cljsbuild" "auto"] 
-                             "headless" ["ring" "server-headless" "8080"]
-                             "server"   ["ring" "server" "8080"]
-                             "dev"      ["pdo" "server," "cljx" "auto," "cljsbuild" "auto"]}
+                   :aliases {"once" ["do" "cljx" "once," "cljsbuild" "once"]
+                             "auto" ["pdo" "cljx" "auto," "cljsbuild" "auto"]
+                             "dev"  ["pdo" "ring" "server-headless" "8080," "cljx" "auto," "figwheel"]}
               
                    :ring {:handler       cljx-start.core/app
-                          :auto-reload?  true
-                          :auto-refresh? true}}})
+                          :auto-reload?  false
+                          :auto-refresh? false}}})

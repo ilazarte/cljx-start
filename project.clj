@@ -1,4 +1,4 @@
-(defproject cljx-start/lein-template "0.1.0"
+(defproject cljx-start/lein-template "0.2.0"
 
   :description "A cljx, cljsbuild lein template. Stop fighting with project.clj!"
 

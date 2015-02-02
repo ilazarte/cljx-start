@@ -21,19 +21,20 @@
                    :namespace   main-ns
                    :sanitized   sanitized
                    :year        (year)}
-        subdirs   ["src/clj" "src/cljs"]]
+        subdirs   ["src/clj"]]
     
     (main/info "Generating" name "using cljx-start")
     (main/info "Creating project files...")
     
     (->files 
       data
-      [".gitignore"                       (render ".gitignore" data)]
-      ["README.md"                        (render "README.md" data)]
-      ["LICENSE"                          (render "LICENSE" data)]
-      ["project.clj"                      (render "project.clj" data)]
-      ["src/cljx/{{sanitized}}/core.cljx" (render "core.cljx" data)]
-      ["dev/clj/cljx_start/core.clj"      (render "core.clj" data)]
+      [".gitignore"                        (render ".gitignore" data)]
+      ["README.md"                         (render "README.md" data)]
+      ["LICENSE"                           (render "LICENSE" data)]
+      ["project.clj"                       (render "project.clj" data)]
+      ["src/cljx/{{sanitized}}/core.cljx"  (render "core.cljx" data)]
+      ["src/cljs/{{sanitized}}/view.cljs"  (render "view.cljs" data)]
+      ["dev/clj/cljx_start/core.clj"       (render "core.clj" data)]
       ["dev/cljs/{{sanitized}}/dev.cljs"   (render "dev.cljs" data)])
     
     (main/info "Creating empty clj/cljs directories...")

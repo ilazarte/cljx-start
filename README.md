@@ -1,18 +1,18 @@
 # cljx-start
 
-cljx-start is a Leiningen template to provide a configured cjlx template to ease in the configuration nightmare.
+cljx-start is a Leiningen template to provide a configured cjlx template to ease in the configuration.
+It incorporates reagent and figwheel for ease of development from the start.
+It was inspired by cljs-start.
 
 [![Clojars Project](http://clojars.org/cljx-start/lein-template/latest-version.svg)](http://clojars.org/cljx-start/lein-template)
 
 ## Difference from cljs-start
 
-cljx-start isn't intended to have a comprehensive release setup, it focuses more on getting you compiled and coding.
-Most all repl concepts have been removed except for a non-project rhino repl (see aliases).
-This is more from a "get it out there" perspective than anything else. 
+cljx-start isn't intended to have a comprehensive release setup, it focuses more on getting you compiled and coding.  This might change very soon as different profiles of the template are investigated.
   
 ## Usage
 
-tl;dr lein once, then lein dev and code away
+tl;dr lein once, then lein dev or lein auto and code away
 
 long version:
 
@@ -30,19 +30,16 @@ I'm looking into making figwheel the primary feedback mechanism for cljs.
 
 Several lein aliases have been created for convenience, I typically use lein dev and forget the rest.
 
-    lein rhino ; start a cljs repl that does not contain the project source
+    lein clean ; clean the output directories of all generated and build targets (does not delete figwheel output)
     lein once ; preprocess cljx into clj and cljs and build once
-    lein auto ; setup auto building of cljx into clj and cljs
-    lein clean ; clean the output directories of all generated and build targets
-    lein server ; launch ring in server mode (pops up browser)
-    lein headless ; launch ring in server headless mode (does not popup browser)
-    lein dev ; the grand enchilada, launch cljx/cljsbuild in auto mode and popup a server
-    
-## Plans
-
-Looking into including figwheel potentially, maybe gorilla repl as well but refreshing ring cljs/clj is on by default.
-As far as testing goes, most likely will adapt clojure.test/clojurescript.test due to similarly but investigation is pending.   
+    lein auto ; start cljx and cljsbuild auto (useful for lib versions)
+	lein dev ; start headless, start cljx auto, and run figwheel (browse to localhost:8080) 
+        
+## TODO
+1. look into figwheel cleaning.  is it even necessary and if so what is the best way from lein cli.
+2. investigate testing integration for both clj and cljs.
+3. begin implementing various scenarios webapp, lib, script etc. 
     
 ## License
 
-Copyright © 2014 ilazarte Released under the Eclipse Public License, the same as Clojure.
+Copyright ï¿½ 2014 ilazarte Released under the Eclipse Public License, the same as Clojure.
