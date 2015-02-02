@@ -42,4 +42,4 @@ Several lein aliases have been created for convenience, I typically use lein dev
     
 ## License
 
-Copyright � 2014 ilazarte Released under the Eclipse Public License, the same as Clojure.
+Copyright &copy; 2014 ilazarte Released under the Eclipse Public License, the same as Clojure.
