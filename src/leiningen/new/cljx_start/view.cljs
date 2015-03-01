@@ -6,5 +6,5 @@
   [:div "{{name}} main div"])
 
 (defn main []
-  (js/console.log "Welcome to [{{name}}], happy hacking!") 
+  (js/console.log (str "[{{name}}] " (js/Date.) ", happy hacking!"))
   (reagent/render-component [page] (.getElementById js/document "main")))

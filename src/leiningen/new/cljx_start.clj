@@ -35,7 +35,7 @@
       ["src/cljx/{{sanitized}}/core.cljx"  (render "core.cljx" data)]
       ["src/cljs/{{sanitized}}/view.cljs"  (render "view.cljs" data)]
       ["dev/clj/cljx_start/core.clj"       (render "core.clj" data)]
-      ["dev/cljs/{{sanitized}}/dev.cljs"   (render "dev.cljs" data)])
+      ["dev/cljs/cljx_start/dev.cljs"      (render "dev.cljs" data)])
     
     (main/info "Creating empty clj/cljs directories...")
     (doseq [subdir subdirs] 

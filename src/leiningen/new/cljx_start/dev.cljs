@@ -1,4 +1,4 @@
-(ns {{name}}.dev
+(ns cljx-start.dev
   (:require 
     [{{name}}.view :as view]
     [figwheel.client :as figwheel :include-macros true]))

@@ -38,7 +38,8 @@ Several lein aliases have been created for convenience, I typically use lein dev
 ## TODO
 1. look into figwheel cleaning.  is it even necessary and if so what is the best way from lein cli.
 2. investigate testing integration for both clj and cljs.
-3. begin implementing various scenarios webapp, lib, script etc. 
+3. begin implementing various scenarios webapp, lib, script etc.
+4. add sample macro, sample cljx file and sample requirement from cljs 
     
 ## License
 
