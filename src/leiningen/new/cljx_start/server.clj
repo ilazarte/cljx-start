@@ -1,4 +1,4 @@
-(ns cljx-start.core
+(ns cljx-start.server
   (:require [compojure.core :refer :all]
             [compojure.handler :as handler]
             [compojure.route :as route]
@@ -8,7 +8,9 @@
             [ring.middleware.json         :as json]
             [ring.middleware.resource     :as resource]
             [ring.util.response           :as response]
-            [hiccup.page              :refer [html5 include-js include-css]]))
+            [hiccup.page                  :refer [html5 
+                                                  include-js 
+                                                  include-css]]))
 
 (defn wrap-nocache 
   "completely disable all caching on the client, helps with source maps accuracy and update to dateness"
@@ -29,10 +31,10 @@
       [:body 
        [:div#main nil]
        (include-js
-         "/webjars/react/0.11.1/react.js"
+         "/webjars/react/0.12.2/react.js"
          "/js/goog/base.js"
          "/js/{{sanitized}}.js")
-       [:script "goog.require('{{sanitized}}.dev');"]]))
+       [:script "goog.require('cljx_start.dev');"]]))
   
   (route/resources "/")
   

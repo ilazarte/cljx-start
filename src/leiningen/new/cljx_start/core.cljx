@@ -1,1 +1,1 @@
-(ns {{namespace}})
+(ns {{name}}.core)

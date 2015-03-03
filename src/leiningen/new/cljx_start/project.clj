@@ -11,17 +11,17 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
 
   :dependencies [[org.clojure/clojure "1.6.0"]
-                 [org.clojure/clojurescript "0.0-2760"]
+                 [org.clojure/clojurescript "0.0-2913"]
                  [figwheel "0.2.2-SNAPSHOT"]
-                 [compojure "1.3.1"]
+                 [compojure "1.3.2"]
                  [ring "1.3.2"]
                  [ring/ring-json "0.3.1"]
                  [hiccup "1.0.5"]
-                 [org.webjars/react "0.11.1"]
-                 [reagent "0.4.3"]]
+                 [org.webjars/react "0.12.2"]
+                 [reagent "0.5.0-alpha3"]]
   
-  :plugins [[com.keminglabs/cljx "0.5.0"]
-            [lein-cljsbuild "1.0.4"]
+  :plugins [[com.keminglabs/cljx "0.6.0"]
+            [lein-cljsbuild "1.0.5"]
             [lein-figwheel "0.2.2-SNAPSHOT"]
             [lein-pdo "0.1.1"]]
 
@@ -40,7 +40,7 @@
                    :rules :cljs}]}
   
   :cljsbuild {:builds {:{{name}} 
-                       {:source-paths ["src/cljs" "target/generated/classes"]
+                       {:source-paths ["src/clj" "target/classes" "src/cljs" "target/generated/classes"]
                         :compiler {:output-to "resources/public/js/{{sanitized}}.js"
                                    :source-map "resources/public/js/{{sanitized}}.js.map"
                                    :output-dir "resources/public/js" 
@@ -56,6 +56,6 @@
                              "auto" ["pdo" "cljx" "auto," "cljsbuild" "auto"]
                              "dev"  ["pdo" "ring" "server-headless" "8080," "cljx" "auto," "figwheel"]}
               
-                   :ring {:handler       cljx-start.core/app
-                          :auto-reload?  false
+                   :ring {:handler       cljx-start.server/app
+                          :auto-reload?  true
                           :auto-refresh? false}}})
