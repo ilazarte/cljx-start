@@ -10,7 +10,7 @@
 
 ; TODO, review multi-segment vs namespace vars candidates for removal
 (defn cljx-start
-  "Minimal cljx lein template with a few conveniences"
+  "cljx lib or isomorphic cljx based web app template"
   [name]
   (let [render    (renderer "cljx-start")
         main-ns   (multi-segment (sanitize-ns name))
@@ -29,11 +29,9 @@
       ["README.md"                          (render "README.md" data)]
       ["LICENSE"                            (render "LICENSE" data)]
       ["project.clj"                        (render "project.clj" data)]
-      ["src/clj/{{sanitized}}/main.clj"     (render "main.clj" data)]
-      ["src/cljx/{{sanitized}}/core.cljx"   (render "core.cljx" data)]
-      ["src/cljx/{{sanitized}}/macros.cljx" (render "macros.cljx" data)]
-      ["src/cljs/{{sanitized}}/view.cljs"   (render "view.cljs" data)]
-      ["dev/clj/cljx_start/server.clj"      (render "server.clj" data)]
-      ["dev/cljs/cljx_start/dev.cljs"       (render "dev.cljs" data)])
+      ["src/cljx/{{sanitized}}/main.cljx"   (render "main.cljx" data)]
+      ["src/cljx/{{sanitized}}/routes.cljx" (render "routes.cljx" data)]
+      ["src/cljx/{{sanitized}}/util.cljx"   (render "util.cljx" data)]
+      ["src/cljs/{{sanitized}}/view.cljx"   (render "view.cljx" data)])
     
     (main/info "Done!")))

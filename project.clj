@@ -1,4 +1,4 @@
-(defproject cljx-start/lein-template "0.2.1"
+(defproject cljx-start/lein-template "0.3.0"
 
   :description "A cljx, cljsbuild, figwheel and reagent lein template. Stop fighting with project.clj!"
 
