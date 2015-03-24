@@ -32,6 +32,6 @@
       ["src/cljx/{{sanitized}}/main.cljx"   (render "main.cljx" data)]
       ["src/cljx/{{sanitized}}/routes.cljx" (render "routes.cljx" data)]
       ["src/cljx/{{sanitized}}/util.cljx"   (render "util.cljx" data)]
-      ["src/cljs/{{sanitized}}/view.cljx"   (render "view.cljx" data)])
+      ["src/cljx/{{sanitized}}/view.cljx"   (render "view.cljx" data)])
     
     (main/info "Done!")))
