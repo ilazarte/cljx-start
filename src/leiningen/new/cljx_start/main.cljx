@@ -2,7 +2,7 @@
   #+clj
   (:require
     [ring.adapter.jetty :as jetty]
-    [{{name}}.routes        :as routes])
+    [{{name}}.routes    :as routes])
   #+cljs
   (:require 
     [figwheel.client :as figwheel :include-macros true]

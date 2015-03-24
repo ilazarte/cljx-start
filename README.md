@@ -1,7 +1,7 @@
 # cljx-start
 
-cljx-start is a Leiningen template to provide a configured cjlx template to ease in the configuration.
-It incorporates reagent and figwheel for ease of development from the start.
+cljx-start is a Leiningen template to develop an isomorphic webapp via cljx.
+It incorporates reagent, hiccup, garden, and figwheel for ease of development from the start.
 It was inspired by cljs-start.
 
 [![Clojars Project](http://clojars.org/cljx-start/lein-template/latest-version.svg)](http://clojars.org/cljx-start/lein-template)
@@ -12,35 +12,26 @@ cljx-start isn't intended to have a comprehensive release setup, it focuses more
   
 ## Usage
 
-tl;dr lein once, then lein dev or lein auto and code away
+tl;dr lein once, then lein dev and code away.
+lein dev will start a figwheel process and the embedded webapp.
 
 long version:
 
-If you are writing cross compiling code, it belongs in src/cljx.
-Any target specific code is added to src/clj and as well as src/cljs.
-For cljs, a bootstrap namespace is provided in dev/cljs defaulted to {projectname}.dev.
-Require any namespace in that file that you wish to test in cljs and it will automatically add it.
+The included web server has been setup as a ring compojure app with caching busted.  New clj code will require a page refresh
+New cljx/cljs code will be automatically updated via figwheel The code includes sample css, server side html and clientside.
+It only starts you with cljx clojure.  If you need clj/cljs, comments have been provided in the project.clj to show you where to start.
 
-The included web server has been setup as a ring compojure app with caching busted.  
-This is important in order to make sure your web browser picks up the latest sources and executes them correctly.
-Any new clj code in the ring app is automatically reloaded.
-Any new cljs code added requires a page refresh.
-As you are using cljx, you can spend more of your time testing functions in the repl.
-I'm looking into making figwheel the primary feedback mechanism for cljs.
+## Aliases
 
-Several lein aliases have been created for convenience, I typically use lein dev and forget the rest.
-
-    lein clean ; clean the output directories of all generated and build targets (does not delete figwheel output)
+    lein clean ; clean generated and build targets (does not delete figwheel output)
     lein once ; preprocess cljx into clj and cljs and build once
-    lein auto ; start cljx and cljsbuild auto (useful for lib versions)
 	lein dev ; start headless, start cljx auto, and run figwheel (browse to localhost:8080) 
         
 ## TODO
 1. look into figwheel cleaning.  is it even necessary and if so what is the best way from lein cli.
 2. investigate testing integration for both clj and cljs.
 3. begin implementing various scenarios webapp, lib, script etc.
-4. add sample macro, sample cljx file and sample requirement from cljs 
-    
+     
 ## License
 
-Copyright &copy; 2014 ilazarte Released under the Eclipse Public License, the same as Clojure.
+Copyright &copy; 2015 ilazarte Released under the Eclipse Public License, the same as Clojure.

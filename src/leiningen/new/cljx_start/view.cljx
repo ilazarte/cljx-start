@@ -17,18 +17,13 @@
   (html5 
      [:head 
       (include-css 
-        "/webjars/materializecss/0.95.0/css/materialize.css"
         "/css/{{name}}.css")]
      [:body
       forms 
       (include-js 
-        "/webjars/jquery/2.1.3/jquery.js"
-        "/webjars/materializecss/0.95.0/js/materialize.js"
-        "/webjars/react/0.12.2/react.js"
-        "/webjars/d3js/3.5.3/d3.js" 
-        "/js/goog/base.js" 
-        "/js/{{name}}.js")
-      [:script "goog.require('{{name}}.main');"]]))
+         "/js/goog/base.js" 
+         "/js/{{name}}.js")
+      [:script "goog.require('{{sanitized}}.main');"]]))
 
 #+clj
 (defn index []

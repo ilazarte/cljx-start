@@ -12,23 +12,18 @@
 
   :dependencies [[environ "1.0.0"]
                  [org.clojure/clojure "1.6.0"]
-                 [org.clojure/clojurescript "0.0-2985"]
+                 [org.clojure/clojurescript "0.0-3149"]
                  [compojure "1.3.2"]
                  [ring "1.3.2"]
                  [ring/ring-json "0.3.1"]
                  [garden "1.2.5"]
                  [hiccup "1.0.5"]
-                 [figwheel "0.2.5-SNAPSHOT"]
-                 [prismatic/schema "0.4.0"]
-                 [org.webjars/jquery "2.1.3"]
-                 [org.webjars/d3js "3.5.3"]
-                 [org.webjars/materializecss "0.95.0"] 
-                 [org.webjars/react "0.12.2"] 
-                 [reagent "0.5.0-alpha3"]]
+                 [figwheel "0.2.5"]
+                 [reagent "0.5.0"]]
   
   :plugins [[lein-environ "1.0.0"]
             [com.keminglabs/cljx "0.6.0"]
-            [lein-figwheel "0.2.5-SNAPSHOT"]
+            [lein-figwheel "0.2.5"]
             [lein-cljsbuild "1.0.5"]
             [lein-pdo "0.1.1"]]
 
@@ -55,7 +50,7 @@
   
   :profiles {:dev {:env {:profile :dev}
                    
-                   :plugins [[lein-ring "0.9.2"]]
+                   :plugins [[lein-ring "0.9.3"]]
                    
                    :aliases {"once" ["do" "cljx" "once," "cljsbuild" "once"]
                              "auto" ["pdo" "cljx" "auto," "cljsbuild" "auto"]
