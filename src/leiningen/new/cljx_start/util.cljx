@@ -2,7 +2,7 @@
   #+cljs 
   (:require-macros
     [{{name}}.util :refer [log
-                       get-element-by-id]]))
+                           get-element-by-id]]))
 
 (defmacro log [& forms]
   `(js/console.log "[{{name}}]" (js/Date.) "> " ~@forms))

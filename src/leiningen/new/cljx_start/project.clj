@@ -43,8 +43,8 @@
   
   :cljsbuild {:builds {:{{name}} 
                        {:source-paths ["target/classes" "target/generated/classes"] ;add src/clj src/cljs if used
-                        :compiler {:output-to "resources/public/js/{{name}}.js"
-                                   :source-map "resources/public/js/{{name}}.js.map"
+                        :compiler {:output-to "resources/public/js/{{sanitized}}.js"
+                                   :source-map "resources/public/js/{{sanitized}}.js.map"
                                    :output-dir "resources/public/js" 
                                    :optimizations :none}}}}
   

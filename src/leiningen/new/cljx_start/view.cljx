@@ -22,7 +22,7 @@
       forms 
       (include-js 
          "/js/goog/base.js" 
-         "/js/{{name}}.js")
+         "/js/{{sanitized}}.js")
       [:script "goog.require('{{sanitized}}.main');"]]))
 
 #+clj
